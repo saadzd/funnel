@@ -25,6 +25,9 @@ app.use(
   })
 );
 
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
 
 const PUBLIC_DIR_PATH = path.resolve(__dirname, "../public");

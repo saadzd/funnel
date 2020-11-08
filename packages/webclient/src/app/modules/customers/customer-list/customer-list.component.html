@@ -1,0 +1,40 @@
+<button routerLink="/customers/new-customer">New Customer</button>
+<table *ngIf="customers.length !== 0" class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="text-right">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">Notes</th>
+      <th scope="col">Assigned To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <th scope="row" class="text-right">{{ customer.id }}</th>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.phone }}</td>
+      <td>{{ customer.address }}</td>
+      <td>{{ customer.notes }}</td>
+      <td>{{ customer.assignedStaffMember.name }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="container">
+  <p *ngIf="isLoading" class="text-center">
+    Loading table data. Please wait for a few seconds as this can be slow, depending on how big the
+    data seed is.
+  </p>
+
+  <p *ngIf="!isLoading && isError" class="text-center">
+    There was an error while loading the data. Try fixing it.
+  </p>
+
+  <p *ngIf="!isLoading && !isError && customers.length === 0" class="text-center">
+    No data available. Use the data seed to fill in the DB with dummy data.
+  </p>
+</div>

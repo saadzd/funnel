@@ -37,13 +37,20 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   StaffMember.associate = () => {
-    const { Robot } = sequelize.models;
+    const { Robot, Customer } = sequelize.models;
 
     StaffMember.belongsToMany(Robot, {
       as: "robots",
       through: "RobotExpert",
       foreignKey: "staffMemberId",
     });
+
+    StaffMember.belongsToMany(Customer, {
+      as: "customers",
+      through: "Customer",
+      foreignKey: "staffMemberId",
+    });
+
   };
 
   return StaffMember;

@@ -17,30 +17,30 @@ services:
     ports:
       - 8080:8080
 
-  server:
-    depends_on:
-      - db
-    image: node:10
-    user: "node"
-    working_dir: /home/node/app
-    environment:
-      - NODE_ENV=development
-    volumes:
-      - ./:/home/node/app
-    ports:
-      - 3003:3000
-    command: "yarn workspace sl-server start"
-
-  webclient:
-    depends_on:
-      - server
-    image: node:10
-    user: "node"
-    working_dir: /home/node/app
-    environment:
-      - NODE_ENV=development
-    volumes:
-      - ./:/home/node/app
-    ports:
-      - 4200:4200
-    command: "yarn workspace sl-webclient start:container"
+#  server:
+#    depends_on:
+#      - db
+#    image: node:10
+#    user: "node"
+#    working_dir: /home/node/app
+#    environment:
+#      - NODE_ENV=development
+#    volumes:
+#      - ./:/home/node/app
+#    ports:
+#      - 3003:3000
+#    command: "yarn workspace sl-server start"
+#
+#  webclient:
+#    depends_on:
+#      - server
+#    image: node:10
+#    user: "node"
+#    working_dir: /home/node/app
+#    environment:
+#      - NODE_ENV=development
+#    volumes:
+#      - ./:/home/node/app
+#    ports:
+#      - 4200:4200
+#    command: "yarn workspace sl-webclient start:container"

@@ -1,0 +1,51 @@
+<div class="container">
+  <form [formGroup]="customerForm" (submit)="createCustomer()">
+    <div>
+      <label for="name">Customer name:</label>
+      <input name="name" formControlName="name" />
+    </div>
+    <div>
+      <label for="email">Customer Email:</label>
+      <input name="email" formControlName="email" />
+    </div>
+    <div>
+      <label for="phone">Customer Phone:</label>
+      <input name="phone" formControlName="phone" />
+    </div>
+    <div>
+      <label for="address">Customer Address:</label>
+      <input name="address" formControlName="address" />
+    </div>
+    <div>
+      <label for="notes">Customer Notes:</label>
+      <input name="notes" formControlName="notes" />
+    </div>
+    <div formGroupName="interest">
+      <div>
+        <label>Type:</label>
+        <input formControlName="hardwareType"/>
+      </div>
+      <div>
+        <label>Weight:</label>
+        <input formControlName="weight"/>
+      </div>
+      <div>
+        <label>Autonomy:</label>
+        <input formControlName="autonomy"/>
+      </div>
+      <div>
+        <label>Min Price:</label>
+        <input formControlName="minPrice"/>
+      </div>
+      <div>
+        <label>Max Price:</label>
+        <input formControlName="maxPrice"/>
+      </div>
+      <div>
+        <label>Brand Id:</label>
+        <input formControlName="brandId"/>
+      </div>
+    </div>
+    <div><button>Save</button></div>
+  </form>
+</div>

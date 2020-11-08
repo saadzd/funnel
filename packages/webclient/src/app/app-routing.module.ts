@@ -16,6 +16,11 @@ const routes: Routes = [
     loadChildren: () =>
       import("./modules/staff-members/staff-members.module").then((m) => m.StaffMembersModule),
   },
+  {
+    path: "customers",
+    loadChildren: () =>
+      import("./modules/customers/customers.module").then((m) => m.CustomersModule),
+  },
   { path: "", redirectTo: "/challenge", pathMatch: "full" },
   { path: "**", redirectTo: "/challenge" },
 ];
